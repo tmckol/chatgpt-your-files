@@ -20,7 +20,7 @@ export const corsHeaders = {
 
 Deno.serve(async (req) => {
   // Handle CORS
-  if (req.method === 'OPTIONS') {
+  if (req.method === 'no-cors') {
     return new Response('ok', { headers: corsHeaders });
   }
   if (!supabaseUrl || !supabaseAnonKey) {
