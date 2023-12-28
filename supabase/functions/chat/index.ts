@@ -13,14 +13,14 @@ const supabaseUrl = Deno.env.get('SUPABASE_URL');
 const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY');
 
 export const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': 'https://chatgpt-your-files-fxigr8hbo-sougatas-projects-28555825.vercel.app/chat',
   'Access-Control-Allow-Headers':
     'authorization, x-client-info, apikey, content-type',
 };
 
 Deno.serve(async (req) => {
   // Handle CORS
-  if (req.method === 'no-cors') {
+  if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
   if (!supabaseUrl || !supabaseAnonKey) {
